@@ -208,7 +208,7 @@ class Surveys:
                         pass
                     else:
                         self.store_blob(
-                            path=self.get_destination_path(form['meta']['id'], 'registrations'),
+                            path=self.get_destination_path(form['id'], 'registrations'),
                             data=json.dumps(form_data_response),
                             content_type='application/json'
                         )
