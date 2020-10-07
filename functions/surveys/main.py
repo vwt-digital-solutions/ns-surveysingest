@@ -5,6 +5,7 @@ import datetime
 import json
 import logging
 import requests
+from retry import retry
 import config
 
 from google.cloud import storage, kms_v1, secretmanager_v1
@@ -143,6 +144,7 @@ class Surveys:
 
         return destination_path
 
+    @retry(ConnectionError, tries=3, delay=2, logging=None)
     def get_folders(self):
         """
         Get all folders details e.g Folder forms and extra information
