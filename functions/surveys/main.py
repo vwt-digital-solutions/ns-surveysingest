@@ -144,7 +144,7 @@ class Surveys:
 
         return destination_path
 
-    @retry(ConnectionError, tries=3, delay=2, logging=None)
+    @retry(ConnectionError, tries=3, delay=2, logger=None)
     def get_folders(self):
         """
         Get all folders details e.g Folder forms and extra information
